@@ -1,21 +1,43 @@
-#!/usr/bin/python
-
-#debian-section: python
-
 from distutils.core import setup, Extension
 
-if __name__=='__main__':
-    setup(name="python-eunuchs",
-	  description="Missing manly parts of UNIX API for Python",
-	  long_description="""
+setup(
+    name = 'nadds',
+    version = '0.1.1',
+    license="GNU LGPL",
+    keywords=['python', 'api'],
+    classifiers=[
+        'Development Status :: 3 - Alpha',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)',
+        'Operating System :: POSIX :: Linux',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: Implementation :: CPython',
+        'Topic :: Utilities',
+    ],
+    author = 'Orlof',
+    author_email = 'orlof@users.noreply.github.com',
 
-Eunuchs is a library of Python extensions that complement the standard
+    url = 'https://github.com/orlof/python-nadds/',
+    download_url = 'https://github.com/orlof/python-nadds/archive/0.1.1.tar.gz',
+
+    packages = ['nadds'],
+    ext_package="nadds",
+    ext_modules=[
+        Extension(
+            module,
+            ["nadds/%s.c" % module],
+            extra_compile_args=['-Werror']
+        ) for module in ('recvmsg', 'sendmsg', 'socketpair', '_tuntap', 'socket_const')],
+
+    description='Low level linux api calls for python',
+    long_description="""
+Nadds is a library of Python extensions that complement the standard
 libraries in parts where full support for the UNIX API (or the Linux
 API) is missing.
 
-Most of the functions wrapped by Eunuchs are low-level, dirty, but
-absolutely necessary functions for real systems programming. The aim
-is to have the functions added to mainstream Python libraries.
+Most of the functions wrapped by Nadds are low-level, dirty, but
+absolutely necessary functions for real systems programming. These 
+functions are mostly added to mainstream Python3.
 
 Current list of features included:
 
@@ -24,20 +46,5 @@ Current list of features included:
 - socketpair(2)
 
 - support for TUN/TAP virtual network interfaces
-""".strip(),
-	  author="Tommi Virtanen",
-	  author_email="tv@debian.org",
-	  url="http://eunuchs.bkbits.net/",
-	  license="GNU LGPL",
-
-	  package_dir={"": "lib"},
-	  packages=[
-	"eunuchs",
-	],
-          ext_package="eunuchs",
-          ext_modules=[Extension(module, ["lib/eunuchs/%s.c" % module],
-                                 extra_compile_args=['-Werror'])
-                       for module in ('recvmsg', 'sendmsg',
-                                      'socketpair', '_tuntap',
-                                      'socket_const')],
-	  )
+""".strip()
+)

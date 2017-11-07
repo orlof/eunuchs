@@ -14,6 +14,7 @@ static PyObject *my_sendmsg(PyObject *self, PyObject *args, PyObject *keywds) {
   struct msghdr msg = {0};
   struct sockaddr_in sa;
   struct iovec iov[1];
+  int iov_len;
   char cmsgbuf[CMSG_BUFSIZE];
   PyObject *ancillary = NULL;
   char *host = NULL;
@@ -29,12 +30,14 @@ static PyObject *my_sendmsg(PyObject *self, PyObject *args, PyObject *keywds) {
   if (!PyArg_ParseTupleAndKeywords(args, keywds, "it#|siiO", kwlist,
 				   &fd,
 				   &iov[0].iov_base,
-				   &iov[0].iov_len,
+				   &iov_len,
 				   &host,
 				   &port,
 				   &flags,
 				   &ancillary))
     return NULL;
+
+  iov[0].iov_len = (size_t)iov_len;
 
   if (host || port) {
     memset(&sa, 0, sizeof(sa));

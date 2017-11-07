@@ -1,9 +1,9 @@
 import array
 from socket import SOL_SOCKET
 
-from eunuchs.recvmsg import recvmsg
-from eunuchs.sendmsg import sendmsg
-from eunuchs.socket_const import SCM_RIGHTS
+from nadds.recvmsg import recvmsg
+from nadds.sendmsg import sendmsg
+from nadds.socket_const import SCM_RIGHTS
 
 def receive_fds(sock, num=1, size=1):
     """

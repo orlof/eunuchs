@@ -20,7 +20,7 @@ import socket
 import struct
 import sys
 
-from eunuchs.passfd import send_fds
+from nadds.passfd import send_fds
 
 (SOCKPATH,) = sys.argv[1:]
 

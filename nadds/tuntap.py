@@ -1,4 +1,4 @@
-from eunuchs._tuntap import *
+from nadds._tuntap import *
 import struct
 
 class TuntapPacketInfo:

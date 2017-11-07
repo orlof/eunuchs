@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import socket
-from eunuchs.sendmsg import sendmsg
+from nadds.sendmsg import sendmsg
 from socket import SOL_SOCKET, SO_BROADCAST, SOL_IP
 IP_PKTINFO = 8 #TODO
 IP_RETOPTS = 7 #TODO

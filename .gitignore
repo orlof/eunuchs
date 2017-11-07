@@ -6,14 +6,8 @@
 /.coverage
 /_trial_temp
 
-# debianization
-/debian/control
-/debian/files
-/debian/*.substvars
-/debian/*.debhelper
-/debian/python-eunuchs
-/debian/python2.3-eunuchs
-/debian/python2.4-eunuchs
+/.idea
+
 /build
 /dist
 /python-build-stamp-*

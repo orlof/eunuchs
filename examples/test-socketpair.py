@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import socket, os, errno
 
-from eunuchs.socketpair import socketpair
+from nadds.socketpair import socketpair
 
 # set things up so the fds we get are deterministic
 for fd in xrange(3,100):
