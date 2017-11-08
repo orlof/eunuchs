@@ -1,8 +1,9 @@
+import setuptools
 from distutils.core import setup, Extension
 
 setup(
     name = 'nadds',
-    version = '0.1.1',
+    version = '0.1.2',
     license="GNU LGPL",
     keywords=['python', 'api'],
     classifiers=[
