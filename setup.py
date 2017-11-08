@@ -1,8 +1,9 @@
+import setuptools
 from distutils.core import setup, Extension
 
 setup(
     name = 'nadds',
-    version = '0.1.1',
+    version = '0.1.2',
     license="GNU LGPL",
     keywords=['python', 'api'],
     classifiers=[
@@ -18,7 +19,7 @@ setup(
     author_email = 'orlof@users.noreply.github.com',
 
     url = 'https://github.com/orlof/python-nadds/',
-    download_url = 'https://github.com/orlof/python-nadds/archive/0.1.1.tar.gz',
+    download_url = 'https://github.com/orlof/python-nadds/archive/0.1.2.tar.gz',
 
     packages = ['nadds'],
     ext_package="nadds",
